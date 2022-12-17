@@ -9,3 +9,56 @@ One of the key benefits of ECC is that it allows for the creation of secure keys
 There are a variety of different elliptic curve algorithms that are used in ECC, including the popular NIST P-256 curve and the secp256k1 curve used in the Bitcoin and Ethereum networks. It's important to choose the right curve for your application, as different curves have different security properties and may be more or less resistant to certain types of attacks.
 
 ECC is just one aspect of blockchain security, and there are many other factors to consider when designing a secure blockchain system. It is important to carefully evaluate the security needs of your application and to seek guidance from experts in the field when choosing the appropriate cryptographic techniques and protocols.
+
+  Alice
+  ----
+  | |
+  | |
+  ----
+     |
+     |  Public key
+     |  (point on curve)
+     |
+     V
+  ----
+  | |
+  | |
+  ----
+     |
+     |  Message
+     |  (hash of message)
+     |
+     V
+  ----
+  | |
+  | |
+  ----
+     |
+     |  Signature
+     |  (scalar value)
+     |
+     V
+  ----
+  | |
+  | |
+  ----
+     |
+     |  Verification
+     |  (check if signature is valid)
+     |
+     V
+  ----
+  | |
+  | |
+  ----
+     |
+     |  Result
+     |  (true or false)
+     |
+     V
+  ----
+  | |
+  | |
+  ----
+  Bob
+
