@@ -10,55 +10,68 @@ There are a variety of different elliptic curve algorithms that are used in ECC,
 
 ECC is just one aspect of blockchain security, and there are many other factors to consider when designing a secure blockchain system. It is important to carefully evaluate the security needs of your application and to seek guidance from experts in the field when choosing the appropriate cryptographic techniques and protocols.
 
-  Alice
-  ----
-  | |
-  | |
-  ----
-     |
-     |  Public key
-     |  (point on curve)
-     |
-     V
-  ----
-  | |
-  | |
-  ----
-     |
-     |  Message
-     |  (hash of message)
-     |
-     V
-  ----
-  | |
-  | |
-  ----
-     |
-     |  Signature
-     |  (scalar value)
-     |
-     V
-  ----
-  | |
-  | |
-  ----
-     |
-     |  Verification
-     |  (check if signature is valid)
-     |
-     V
-  ----
-  | |
-  | |
-  ----
-     |
-     |  Result
-     |  (true or false)
-     |
-     V
-  ----
-  | |
-  | |
-  ----
-  Bob
+       _______________
+    |               |
+    |               |  Private key
+    |               |  (scalar value)
+    |               |
+    |               |
+    |    Alice      |
+    |               |
+    |               |
+    |               |
+    |               |
+    |_______________|
+          |
+          |
+          V
+     _______________
+    |               |
+    |               |  Public key
+    |               |  (point on curve)
+    |               |
+    |               |
+    |               |
+    |       Bob     |
+    |               |
+    |               |
+    |               |
+    |_______________|
+          |
+          |  Message
+          |  (hash of message)
+          |
+          V
+     _______________
+    |               |
+    |               |  Signature
+    |               |  (scalar value)
+    |               |
+    |               |
+    |               |
+    |       Bob     |
+    |               |
+    |               |
+    |               |
+    |_______________|
+          |
+          |
+          V
+     _______________
+    |               |
+    |               |  Result
+    |               |  (true or false)
+    |               |
+    |               |
+    |    Alice      |
+    |               |
+    |               |
+    |               |
+    |               |
+    |_______________|
 
+In this diagram, Alice wants to send a message to Bob, but wants to ensure that the message cannot be intercepted or tampered with by an attacker. To do this, Alice uses ECC to create a digital signature for the message.
+
+First, Alice creates a public key by selecting a point on an elliptic curve and a private key by choosing a scalar value. She then hashes the message to create a unique value that represents the message. Next, Alice uses her private key to generate a signature for the message by multiplying the hash value by the private key and taking the remainder when the result is divided by the order of the curve.
+
+Alice then sends the message, the signature, and her public key to Bob. Bob uses Alice's public key to verify the signature by performing a series of calculations involving the signature, the hash value, and the point on the curve. If the signature is valid, Bob knows that the message has not been tampered with and that it was sent by Alice.
